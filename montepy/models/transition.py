@@ -1,3 +1,5 @@
+from math import log, sqrt
+
 from montepy.montecarlo import MonteCarlo
 
 import torch

@@ -91,8 +91,7 @@ class MonteCarlo(object):
 
     @staticmethod
     def _lognormal_params(m, s):
-        """
-        Torch requires that the lognormal distribution's parameters be given in
+        """Torch requires that the lognormal distribution's parameters be given in
         terms of the non-logarithmized normal distribution.  This funciton
         converts the expected value and variance desired in the lognormal
         distribution to those parameters.
@@ -103,8 +102,7 @@ class MonteCarlo(object):
 
     @staticmethod
     def _beta_params(m, k):
-        """
-        As is typical, we have to give pytorch Beta in terms of the normal
+        """As is typical, we have to give pytorch Beta in terms of the normal
         parameters a, b. However, we typically have an intuition about the
         mode and variance we want from this distribution, not a, b.
 
