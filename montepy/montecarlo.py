@@ -12,12 +12,13 @@ class MonteCarlo(object):
         self.samples = None
         self.variables = None
 
-    def _sampler(self, d, samples=1000):
+    def _sampler(self, samples=1000):
+        """This function should r
+        """
         pass
 
     def sample(self, samples=1000):
-        s_ = torch.cat([torch.stack(self._sampler(d, samples=samples), dim=1)
-                        for d in [0, 1]], dim=0)
+        s_ = torch.stack(self._sampler(samples=samples), dim=1)
         self.samples = pd.DataFrame(s_.numpy(),
                                     columns=self.variables)
         return self.samples
