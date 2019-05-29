@@ -31,11 +31,13 @@ class TransitionModel(MonteCarlo):
         self.dt_ms = [params[0] for params in dt_params]
         self.dt_ks = [params[1] for params in dt_params]
     
-    def _sampler(self, d, samples=1000):
-        d_ = torch.ones(samples)*d
+    def _sampler(self, samples=1000):
+        d_ = torch.ones(samples)
         if d == 1:
             # If SZ is adopted, then some Districts and Schools buy in
-            dist = Poisson(self.n_districts).sample([samples]).reshape([samples])
+            dist = Poisson(self.n_districts)\
+                    .sample([samples])\
+                    .reshape([samples])
             schools = NegativeBinomial(tensor([3.]),
                                        tensor([0.8]))\
                         .sample([samples, self.n_districts.int()])\
